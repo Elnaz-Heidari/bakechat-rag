@@ -1,0 +1,13 @@
+gradio>=4.44.0
+transformers>=4.43.0
+accelerate>=0.33.0
+datasets>=2.20.0
+sentence-transformers>=3.0.1
+faiss-cpu>=1.8.0
+numpy>=1.26
+pandas>=2.2
+pyarrow>=16.1
+scikit-learn>=1.5
+evaluate>=0.4.2
+rank_bm25>=0.2.2
+uvicorn>=0.30.0

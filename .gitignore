@@ -1,0 +1,27 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+
+# --- OS/Editor noise ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Data artifacts ---
+# Keep raw demo; don't commit big processed outputs by default
+data/processed/*
+!data/processed/.gitkeep
+
+# --- Caches / logs ---
+*.lock
+logs/
+
+# --- Large indexes (optional safety) ---
+*.faiss
