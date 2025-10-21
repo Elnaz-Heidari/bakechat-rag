@@ -14,14 +14,15 @@ Thumbs.db
 .vscode/
 .idea/
 
-# --- Data artifacts ---
-# Keep raw demo; don't commit big processed outputs by default
+# --- Data (ignore everything except mini demo) ---
 data/processed/*
-!data/processed/.gitkeep
+data/raw/*
+!data/raw/mini_recipes.jsonl   # allow demo file
 
-# --- Caches / logs ---
+# --- FAISS / index safety ---
+*.faiss
+*.faiss.index
+
+# --- Cache/lock/logs ---
 *.lock
 logs/
-
-# --- Large indexes (optional safety) ---
-*.faiss
