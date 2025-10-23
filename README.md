@@ -1,10 +1,10 @@
-# 🍞 BakeChat RAG — Retrieval-Augmented Recipe Assistant
+🍞 BakeChat RAG — Retrieval-Augmented Recipe Assistant
 
 BakeChat RAG is a mini Retrieval-Augmented Generation (RAG) application that answers recipe-related questions such as ingredient substitutions and preparation steps. It retrieves relevant recipes from a local dataset using FAISS similarity search, then uses a lightweight instruction-tuned LLM (Qwen 0.5B) to generate grounded responses with source citations. A Gradio UI provides an interactive chat-like interface.
 
 ---
 
-## 🚀 Key Features
+🚀 Key Features
 
 ✅ FAISS-based semantic recipe retrieval  
 ✅ Detects substitution-type questions (e.g., “replace egg in brownies”)  
@@ -16,16 +16,16 @@ BakeChat RAG is a mini Retrieval-Augmented Generation (RAG) application that ans
 
 ---
 
-## 🏗️ System Architecture
+🏗️ System Architecture
 
-User Question → Embedding (MiniLM) → FAISS Retrieval → Context Builder → LLM (Qwen) → Answer + Sources → Display in UI
+User Question → Embedding (MiniLM) → FAISS Retrieval → Context Builder → LLM (Qwen) → Answer + Sources → Diplay in UI
 
 
 📉 (Diagram placeholder — add later as `assets/architecture.png`)
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
 
 bakechat-rag/
 ├─ README.md # Project documentation
@@ -45,7 +45,7 @@ bakechat-rag/
 
 ---
 
-## ⚙️ How the RAG Pipeline Works
+⚙️ How the RAG Pipeline Works
 
 | Stage | What Happens |
 |-------|--------------|
@@ -58,11 +58,11 @@ bakechat-rag/
 
 ---
 
-## ✅ Quickstart (Local Demo)
+ ✅ Quickstart (Local Demo)
 
 > Requires Python 3.10+ and PowerShell/macOS/Linux terminal.
 
-### 1️⃣ Setup virtual environment
+1️⃣ Setup virtual environment
 ```bash
 python -m venv .venv
 # Windows:
@@ -76,11 +76,10 @@ pip install -r requirements.txt
 
 3️⃣ Add a dataset
 
-Use the included demo file:
+✅ Ready to run: A demo dataset (`mini_recipes.jsonl`) is already included in `data/raw/`, so you can run the app immediately.
 
-data/raw/mini_recipes.jsonl
+📈 Optional: To scale up later, replace it with a larger dataset (e.g., Kaggle Food.com or RecipeNLG subset) and rebuild the FAISS index.
 
-Or replace with a larger dataset (e.g., Kaggle Food.com or RecipeNLG subset).
 4️⃣ Build the FAISS index
 
 python rag/build_index.py --input data/raw/mini_recipes.jsonl --format jsonl
