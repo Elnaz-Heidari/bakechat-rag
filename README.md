@@ -29,7 +29,6 @@ User Question → Embedding (MiniLM) → FAISS Retrieval → Context Builder →
 
 bakechat-rag/
 ├─ README.md # Project documentation
-
 ├─ requirements.txt # Dependencies
 ├─ app.py # Gradio UI application
 ├─ Space.md # Notes for future Hugging Face deployment
@@ -42,7 +41,6 @@ bakechat-rag/
 │ └─ eval_retrieval.py # Optional evaluation script
 └─ prompts/
 └─ system.txt # System prompt instructions
-
 
 ---
 
