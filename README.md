@@ -71,10 +71,12 @@ Requires Python 3.10+ and PowerShell/macOS/Linux terminal.
 
 1) Setup virtual environment
 python -m venv .venv
-Windows:
-.\.venv\Scripts\activate
-macOS/Linux:
-source .venv/bin/activate
+
+Activate it:
+
+✅ Windows (PowerShell): .\.venv\Scripts\activate
+
+✅ macOS/Linux: source .venv/bin/activate
 
 2) Install dependencies
 pip install -r requirements.txt
@@ -89,7 +91,9 @@ python rag/build_index.py --input data/raw/mini_recipes.jsonl --format jsonl
 
 5) Launch the Gradio app
 python app.py
+
 Then open: http://127.0.0.1:7860
+
 
 # ✅ First-Run Checklist
 Python 3.10+ installed
@@ -97,6 +101,7 @@ Created and activated a virtual environment
 Built the FAISS index with your dataset
 Aware the model will download (~1 GB) the first time
 Ran python app.py and opened the Gradio UI
+
 
 # 💬 Example Queries
 Query	Expected Behavior
@@ -135,6 +140,7 @@ Optional Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
 # 👩‍💻 Author
 
 Crafted by Elnaz as part of an LLM learning journey exploring real-world RAG architectures.
+
 
 # 📄 License
 
