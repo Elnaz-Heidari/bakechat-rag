@@ -42,7 +42,8 @@ bakechat-rag/
 └─ prompts/
 └─ system.txt # System prompt instructions
 
----
+    📉 (Optional) If you prefer an image, place it at assets/architecture.png and replace the Mermaid block with:
+    ![Architecture Diagram](assets/architecture.png)
 
 ⚙️ How the RAG Pipeline Works
 
