@@ -29,6 +29,7 @@ User Question → Embedding (MiniLM) → FAISS Retrieval → Context Builder →
 
 bakechat-rag/
 ├─ README.md # Project documentation
+
 ├─ requirements.txt # Dependencies
 ├─ app.py # Gradio UI application
 ├─ Space.md # Notes for future Hugging Face deployment
@@ -100,6 +101,8 @@ Component	Model
 Embedder	sentence-transformers/all-MiniLM-L6-v2
 Generator	Qwen/Qwen2.5-0.5B-Instruct
 Optional Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
+⚠ **Note:** On the first run, the generator model (`Qwen/Qwen2.5-0.5B-Instruct`) will be downloaded automatically (~1 GB). Make sure you have a stable connection.
+
 📊 Current Dataset
 
 ✅ Current: 5-item demo JSONL
