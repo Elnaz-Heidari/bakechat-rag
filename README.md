@@ -17,6 +17,7 @@ BakeChat RAG is a mini Retrieval-Augmented Generation (RAG) application that ans
 ---
 
 ## 🏗️ System Architecture
+```mermaid
 flowchart LR
   A["User Question"] --> B["Embedder (MiniLM)"]
   B --> C["FAISS Index (Top-K Similar Recipes)"]
@@ -24,10 +25,12 @@ flowchart LR
   D --> E["LLM Generator (Qwen 0.5B)"]
   E --> F["Answer + Sources"]
   F --> G["Gradio UI"]
+```
 
 
 
-📂 Project Structure    
+# 📂 Project Structure    
+```text
 bakechat-rag/
 ├─ README.md                 # This file
 ├─ requirements.txt          # Dependencies
@@ -44,9 +47,11 @@ bakechat-rag/
 │  └─ system.txt             # System prompt instructions
 └─ assets/
    └─ ui-screenshot.png      # Static UI screenshot (optional)
+```
 
 
-⚙️ How the RAG Pipeline Works
+
+# ⚙️ How the RAG Pipeline Works
 | Stage            | What Happens                         |
 | ---------------- | ------------------------------------ |
 | 🔹 Embedding     | Query converted to vector via MiniLM |
@@ -57,7 +62,7 @@ bakechat-rag/
 | 🔹 Citation      | Sources appended as `[Title \| ID]`  |
 
 
-🎥 Quick Demo
+# 🎥 Quick Demo
 assets/demo.jpg
 
 ✅ Quickstart (Local Demo)
@@ -66,9 +71,9 @@ Requires Python 3.10+ and PowerShell/macOS/Linux terminal.
 
 1) Setup virtual environment
 python -m venv .venv
-# Windows:
+Windows:
 .\.venv\Scripts\activate
-# macOS/Linux:
+macOS/Linux:
 source .venv/bin/activate
 
 2) Install dependencies
@@ -86,14 +91,14 @@ python rag/build_index.py --input data/raw/mini_recipes.jsonl --format jsonl
 python app.py
 Then open: http://127.0.0.1:7860
 
-✅ First-Run Checklist
+# ✅ First-Run Checklist
 Python 3.10+ installed
 Created and activated a virtual environment
 Built the FAISS index with your dataset
 Aware the model will download (~1 GB) the first time
 Ran python app.py and opened the Gradio UI
 
-💬 Example Queries
+# 💬 Example Queries
 Query	Expected Behavior
 “Replace eggs in brownies”	Bullet-style substitutions
 “How to make vegan mayonnaise?”	Summarizes steps
@@ -101,14 +106,14 @@ Query	Expected Behavior
 “Alternative to milk in pancakes”	Suggests liquid replacements
 
 
-🧠 Models Used
+# 🧠 Models Used
 Component	Model
 Embedder	sentence-transformers/all-MiniLM-L6-v2
 Generator (default)	Qwen/Qwen2.5-0.5B-Instruct
 Optional Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
 
 
-📊 Dataset
+# 📊 Dataset
 
     ✅ Current: 5-item demo JSONL
 
@@ -117,7 +122,7 @@ Optional Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
     💡 No pipeline changes required — just rebuild index after replacing the dataset.
 
 
-📅 Roadmap
+# 📅 Roadmap
 | Status | Task                                |
 | ------ | ----------------------------------- |
 | ✅     | Build working RAG demo              |
@@ -127,10 +132,10 @@ Optional Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
 | 🚀     | Deploy to Hugging Face Spaces       |
 
 
-👩‍💻 Author
+# 👩‍💻 Author
 
 Crafted by Elnaz as part of an LLM learning journey exploring real-world RAG architectures.
 
-📄 License
+# 📄 License
 
 MIT License – feel free to fork, learn, and extend!
