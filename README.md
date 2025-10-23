@@ -1,50 +1,128 @@
-# 🍞 BakeChat RAG — A Retrieval-Augmented Recipe Assistant
+# 🍞 BakeChat RAG — Retrieval-Augmented Recipe Assistant
 
-BakeChat RAG is an educational-to-professional learning project that demonstrates how to build a real Retrieval-Augmented Generation (RAG) app from scratch — using FAISS-based document retrieval and a Qwen instruction-tuned LLM to answer cooking questions with cited recipe sources.
-
----
-
-## 📌 Project Overview
-
-This project simulates a mini recipe assistant capable of:
-- Retrieving relevant recipes from a local dataset
-- Understanding ingredient substitution requests (e.g., “What can I use instead of eggs?”)
-- Generating grounded answers using retrieved context + an LLM
-- Citing original recipe sources in each response
-- Running locally with a user-friendly Gradio interface
-
-The goal is to learn the full RAG pipeline end-to-end:
-embedding creation → FAISS indexing → semantic retrieval → prompt design → LLM generation → UI.
+BakeChat RAG is a mini Retrieval-Augmented Generation (RAG) application that answers recipe-related questions such as ingredient substitutions and preparation steps. It retrieves relevant recipes from a local dataset using FAISS similarity search, then uses a lightweight instruction-tuned LLM (Qwen 0.5B) to generate grounded responses with source citations. A Gradio UI provides an interactive chat-like interface.
 
 ---
 
-## 🎯 What This Project Teaches
+## 🚀 Key Features
 
-| Concept | Why It Matters |
-|--------|----------------|
-| Embeddings | Convert text into numeric meaning for retrieval |
-| FAISS similarity search | Enables scalable, fast document retrieval |
-| Retrieval-Augmented Generation | Grounds LLMs on real data (reduce hallucinations) |
-| Prompt engineering | Controls LLM behavior (bullets vs summary) |
-| Generator model loading (Qwen/OPT/T5) | Swap models without changing pipeline |
-| Gradio UI | Turn your logic into a usable app |
+✅ FAISS-based semantic recipe retrieval  
+✅ Detects substitution-type questions (e.g., “replace egg in brownies”)  
+✅ Generates answers grounded in retrieved recipes  
+✅ Uses Qwen/Qwen2.5-0.5B-Instruct (CPU-friendly LLM)  
+✅ Gracefully falls back to summaries when unclear  
+✅ Gradio UI for easy interaction  
+✅ Easily extendable to large datasets (Kaggle, RecipeNLG)
 
 ---
 
 ## 🏗️ System Architecture
 
-1. **User asks a question** (e.g., “How can I replace eggs in brownies?”)  
-2. **Embed query** with SentenceTransformer (`all-MiniLM-L6-v2`)  
-3. **FAISS** retrieves top-N similar recipes  
-4. **Context builder** combines title + ingredients + steps  
-5. **LLM (Qwen 0.5B Instruct by default)** generates an answer from context  
-6. **Answer is formatted + cited** (e.g., `[Title | ID]`)  
-7. **Displayed in Gradio** (web UI)
+User Question → Embedding (MiniLM) → FAISS Retrieval → Context Builder → LLM (Qwen) → Answer + Sources → Display in UI
 
-📉 Architecture Diagram:  
-![Architecture Diagram](assets/architecture.png)
+
+📉 (Diagram placeholder — add later as `assets/architecture.png`)
 
 ---
 
 ## 📂 Project Structure
+
+bakechat-rag/
+├─ README.md # Project documentation
+├─ requirements.txt # Dependencies
+├─ app.py # Gradio UI application
+├─ Space.md # Notes for future Hugging Face deployment
+├─ data/
+│ ├─ raw/ # Raw recipe dataset (mini JSONL demo)
+│ └─ processed/ # FAISS index + metadata parquet
+├─ rag/
+│ ├─ build_index.py # Creates FAISS index
+│ ├─ query.py # Retrieval + generation logic
+│ └─ eval_retrieval.py # Optional evaluation script
+└─ prompts/
+└─ system.txt # System prompt instructions
+
+
+---
+
+## ⚙️ How the RAG Pipeline Works
+
+| Stage | What Happens |
+|-------|--------------|
+| 🔹 Embedding | Query converted to vector via MiniLM |
+| 🔹 Retrieval | FAISS fetches top-matching recipes |
+| 🔹 Context Build | Title, ingredients, steps merged |
+| 🔹 Intent Check | Detects substitution questions |
+| 🔹 Generation | Qwen LLM produces concise response |
+| 🔹 Citation | Sources appended as `[Title | ID]` |
+
+---
+
+## ✅ Quickstart (Local Demo)
+
+> Requires Python 3.10+ and PowerShell/macOS/Linux terminal.
+
+### 1️⃣ Setup virtual environment
+```bash
+python -m venv .venv
+# Windows:
+.\.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+2️⃣ Install dependencies
+
+pip install -r requirements.txt
+
+3️⃣ Add a dataset
+
+Use the included demo file:
+
+data/raw/mini_recipes.jsonl
+
+Or replace with a larger dataset (e.g., Kaggle Food.com or RecipeNLG subset).
+4️⃣ Build the FAISS index
+
+python rag/build_index.py --input data/raw/mini_recipes.jsonl --format jsonl
+
+5️⃣ Launch the Gradio app
+
+python app.py
+
+Then open: http://127.0.0.1:7860
+💬 Example Queries
+Query	What it does
+“Replace eggs in brownies”	Returns bullet-style substitutions
+“How to make vegan mayonnaise?”	Summarizes steps
+“Gluten-free pizza dough method?”	Extracts instructions
+“Alternative to milk in pancakes”	Suggests liquid replacements
+🧠 Models Used
+Component	Model
+Embedder	sentence-transformers/all-MiniLM-L6-v2
+Generator	Qwen/Qwen2.5-0.5B-Instruct
+Optional Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
+📊 Current Dataset
+
+✅ Current: 5-item demo JSONL
+📈 Ready for scaling using Kaggle/RecipeNLG datasets
+✅ No pipeline changes required — just rebuild index.
+📅 Roadmap
+Status	Task
+✅	Build working RAG demo
+🔜	Add --limit support to indexing script
+🔜	Scale to partial Kaggle dataset
+🔜	Optional reranker toggle by default
+🚀	Deploy to Hugging Face Spaces
+👩‍💻 Author
+
+Crafted by Elnaz as part of an LLM learning journey exploring real-world RAG architectures.
+📄 License
+
+MIT License – feel free to fork, learn, and extend!
+
+
+---
+
+✅ Go ahead and replace your existing README with this entire block.  
+✅ Once complete, I’ll send you **Version A (detailed learning version)** for your own documentation and deeper understanding.
 
