@@ -18,17 +18,17 @@ BakeChat RAG is a mini Retrieval-Augmented Generation (RAG) application that ans
 
 ## 🏗️ System Architecture
 
-```mermaid
-flowchart LR
-    A[User Question] --> B[Embedder<br/>SentenceTransformer (MiniLM)]
-    B --> C[FAISS Index<br/>Top-K Similar Recipes]
-    C --> D[Context Builder<br/>Title • Ingredients • Steps]
-    D --> E[LLM Generator<br/>Qwen 0.5B Instruct]
-    E --> F[Answer + Sources]
-    F --> G[Gradio UI]
+flowchart TD
+  A["User Question"]
+  B["Embedder (MiniLM)"]
+  C["FAISS Retrieval"]
+  D["Context Builder"]
+  E["LLM (Qwen 0.5B)"]
+  F["Answer + Sources"]
+  G["Gradio UI"]
 
-    classDef node fill:#fff,stroke:#111,stroke-width:1px,color:#111;
-    class A,B,C,D,E,F,G node;
+  A --> B --> C --> D --> E --> F --> G
+
 
 
 📂 Project Structure    
@@ -68,14 +68,12 @@ assets/demo.jpg
 
 Requires Python 3.10+ and PowerShell/macOS/Linux terminal.
 
-### 1) Setup virtual environment
-```bash
+1) Setup virtual environment
 python -m venv .venv
 # Windows:
 .\.venv\Scripts\activate
 # macOS/Linux:
 source .venv/bin/activate
-
 
 2) Install dependencies
 pip install -r requirements.txt
