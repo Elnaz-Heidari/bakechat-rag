@@ -17,17 +17,13 @@ BakeChat RAG is a mini Retrieval-Augmented Generation (RAG) application that ans
 ---
 
 ## 🏗️ System Architecture
-
-flowchart TD
-  A["User Question"]
-  B["Embedder (MiniLM)"]
-  C["FAISS Retrieval"]
-  D["Context Builder"]
-  E["LLM (Qwen 0.5B)"]
-  F["Answer + Sources"]
-  G["Gradio UI"]
-
-  A --> B --> C --> D --> E --> F --> G
+flowchart LR
+  A["User Question"] --> B["Embedder (MiniLM)"]
+  B --> C["FAISS Index (Top-K Similar Recipes)"]
+  C --> D["Context Builder (title, ingredients, steps)"]
+  D --> E["LLM Generator (Qwen 0.5B)"]
+  E --> F["Answer + Sources"]
+  F --> G["Gradio UI"]
 
 
 
