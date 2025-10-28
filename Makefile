@@ -22,7 +22,7 @@ else
 endif
 
 PY    := $(VENV_BIN)/python
-PIP   := $(VENV_BIN)/pip
+PIP   := $(PY) -m pip
 PYTEST:= $(VENV_BIN)/pytest
 RUFF  := $(VENV_BIN)/ruff
 BLACK := $(VENV_BIN)/black
