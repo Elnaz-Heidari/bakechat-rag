@@ -53,10 +53,7 @@ bakechat-rag/
 ```
 
 
-# m🎥 Quick Deo
-assets/demo.jpg
-
-# ⚡Quickstart (3 commands)
+# Quickstart (3 commands)
 
 Requires Python 3.10+ and a terminal (PowerShell on Windows or any Unix shell).
 
