@@ -1,28 +1,8 @@
-# --- Python ---
+﻿.venv/
 __pycache__/
-*.py[cod]
-*.pyo
-
-# --- Virtual environments ---
-.venv/
-venv/
-env/
-
-# --- OS/Editor noise ---
+*.pyc
+.cache/
+.hf_cache/
+data/processed/
+*.log
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# --- Data (ignore everything except mini demo) ---
-data/processed/*
-data/raw/*
-!data/raw/mini_recipes.jsonl   # allow demo file
-
-# --- FAISS / index safety ---
-*.faiss
-*.faiss.index
-
-# --- Cache/lock/logs ---
-*.lock
-logs/
