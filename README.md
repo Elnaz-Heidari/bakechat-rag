@@ -53,7 +53,7 @@ bakechat-rag/
 ```
 
 
-# Quickstart (3 commands)
+# ✅ Quickstart (3 commands)
 
 Requires Python 3.10+ and a terminal (PowerShell on Windows or any Unix shell).
 
@@ -74,7 +74,7 @@ Then open the link printed in the terminal (usually http://127.0.0.1:7860).
 
 💡 First run will download models. Subsequent runs are instant thanks to local caching.
 
-# Optional: keep model caches inside the repo
+# ✅ Optional: keep model caches inside the repo
 
 Set a local Hugging Face cache so models live under .cache/huggingface in this project:
 
@@ -95,9 +95,9 @@ Close and reopen your terminal afterward.
 | `make format`      | Black format (if added to `requirements-dev.txt`)                     |
 | `make test`        | Run tests if `tests/` exists                                          |
 | `make clean`       | Remove Python and tool caches                                         |
-                                      |
 
-# Customize input format/file if needed:
+
+# ✅ Customize input format/file if needed:
 make build-index INPUT_FILE=data/raw/recipes.jsonl INPUT_FMT=jsonl
 
 
